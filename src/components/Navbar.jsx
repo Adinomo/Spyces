@@ -14,7 +14,7 @@ function Navbar({value, onChange}) {
 						src={logo}
 						width={45}
 					/>
-					<label className="fst-italic text-white fw-bold fs-5"><Link to={"/"}>Spyces</Link></label>
+					<label className="fst-italic text-white fw-bold fs-5"><Link className="link" to={"/"}>Spyces</Link></label>
 				</Col>
 				<Col xs={8}>
 					<Form >

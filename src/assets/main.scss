@@ -138,5 +138,12 @@ Button{
 		width: 85%;
 	}
 }
-
+.link{
+	text-decoration: none;
+	color:inherit;
+	&:hover{
+		color: white;
+		cursor: pointer;
+	}
+}
 

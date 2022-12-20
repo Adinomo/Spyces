@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Col, Row, Form } from 'react-bootstrap';
 import logo from "/src/assets/logo.png";
+import { Link } from 'react-router-dom'
 
 function Navbar({value, onChange}) {
 	return (
@@ -13,7 +14,7 @@ function Navbar({value, onChange}) {
 						src={logo}
 						width={45}
 					/>
-					<label className="fst-italic text-white fw-bold fs-5">Spyces</label>
+					<label className="fst-italic text-white fw-bold fs-5"><Link to={"/"}>Spyces</Link></label>
 				</Col>
 				<Col xs={8}>
 					<Form >

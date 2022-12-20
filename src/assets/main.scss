@@ -29,15 +29,18 @@ body{
 	align-items: stretch;
 	width: 85%;
 	row-gap: 35px;
+	@media (max-width: 600px) {
+		row-gap:30px;
+	}
 	
 	.flexbox-con {
 		display: flexbox;
 		width: fit-content;
 		flex-wrap: wrap;
 		margin: auto;
-
+ 		
 	}
-}
+}         
 .container-cards{
 	width:100%;
 	display: flex;

@@ -1,0 +1,142 @@
+$primary: #3fa76a;
+//#0BAB6👉🏼#3BB78F
+
+@font-face {
+	font-family: "spartan";
+	src: url(./LeagueSpartan-VariableFont_wght.ttf);
+}
+
+* {
+	font-family: "spartan";
+}
+body{
+	overflow-x: hidden;
+}
+.gree {
+	background: linear-gradient(to right, $primary, #3bb78f);
+}
+.search {
+	&:focus {
+		border-color: $primary !important;
+	}
+}
+.container-flex {
+	padding: 10px;
+	display:flex ;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 85%;
+	row-gap: 35px;
+	
+	.flexbox-con {
+		display: flexbox;
+		width: fit-content;
+		flex-wrap: wrap;
+		margin: auto;
+
+	}
+}
+.container-cards{
+	width:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+Button{
+	background-color: $primary!important;
+	font-size: 19px!important;
+}
+.spinner-border{
+	width: 100px!important;
+	height: 100px!important;
+}
+.spin{
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+.card-title {
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  height: 40px;
+  font-size: 20px!important;
+}
+.image{
+	height: 225px!important; 
+	object-fit: cover;
+}
+.ing{
+	margin-left: 10px;
+	font-size: 20px;
+}
+.card{
+	box-shadow: rgba(146, 146, 146, 0.24) 0px 3px 8px;
+	border: none!important;
+}
+.card-body{
+	height: 120px;
+}
+.card-text{
+	margin-top: -25px;
+	margin-bottom: 7px;
+}
+.paginate{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.item {
+  align-items: center;
+  color: #FFF;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+.pagination {
+  align-items: center;
+  background-color: $primary;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: center;
+  list-style-type: none;
+  position: relative;
+  width: 1000px;
+  margin-top: 10px;
+}
+.active {
+  border: solid 1px #fff;
+  border-radius: 40px;
+  color: #fff;
+}
+.page-num{
+	padding: 8px 13px;
+		cursor: pointer;
+		border-radius: 3px;
+		color: white;
+		text-decoration: none;
+		outline: none;
+		&:hover{
+			color: #fff;
+		}
+}
+.img_container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.recipe{
+	&_image{
+		width: 85%;
+	}
+}
+
+

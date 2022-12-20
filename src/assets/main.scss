@@ -17,7 +17,8 @@ body{
 }
 .search {
 	&:focus {
-		border-color: $primary !important;
+		border-color: #28a745!important;
+      box-shadow: 0 0 0 0.2rem rgba(#53dbb0, 0.5)!important;
 	}
 }
 .container-flex {
@@ -46,6 +47,7 @@ body{
 Button{
 	background-color: $primary!important;
 	font-size: 19px!important;
+	border: none!important;
 }
 .spinner-border{
 	width: 100px!important;

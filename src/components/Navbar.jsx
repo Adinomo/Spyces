@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Col, Row, Form } from 'react-bootstrap';
-import logo from "/src/assets/logo.png";
+import logo from "/src/assets/img/logo.png";
 import { Link } from 'react-router-dom'
 
 function Navbar({value, onChange}) {

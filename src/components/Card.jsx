@@ -5,24 +5,23 @@ import { useNavigate } from "react-router-dom";
 function Cards(props) {
 	let navigate = useNavigate();
 	return (
-		<div className="flexbox-con">
-			<Card style={{ width: "16.5rem" }} className="card">
-				<Card.Img
+		<div className="flexbox-con border">
+			<div  className="card">
+				<img
 					variant="top"
 					src={props.image}
 					className="image"
 				/>
-				<Card.Body className="card-body">
-					<Card.Title className="card-title">{props.title}</Card.Title>
+				<div className="card-body">
+					<h2 className="card-title">{props.title}</h2>
 					<p className="card-text">{props.category}</p>
-					<Button
-						variant="success"
+					<button
 						className="btn-view"
 						onClick={() => {navigate(`/${props.id}`)}}>
 						View recipe
-					</Button>
-				</Card.Body>
-			</Card>
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 }

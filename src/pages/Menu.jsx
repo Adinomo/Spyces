@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "/src/assets/main.scss";
 import Cards from "../components/card";
 import Spinners from "../components/spinner";
 import Navbar from "../components/Navbar";

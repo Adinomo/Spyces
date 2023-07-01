@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {Row, Col, Container} from 'react-bootstrap';
 import {useParams} from "react-router-dom";
 import Spinners from '../components/spinner';
 import Navbar from '../components/Navbar';

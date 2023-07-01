@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: Epilogue;
+	src: url("../font/Epilogue-VariableFont_wght.ttf");
+}

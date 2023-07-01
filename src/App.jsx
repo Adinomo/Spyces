@@ -6,7 +6,8 @@ import RecipeDetails from "./pages/recipeDetails";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<div className="font-primary">
+			<BrowserRouter>
 			<Routes>
 				<Route
 					index  
@@ -18,6 +19,7 @@ function App() {
 					/>
 			</Routes>
 		</BrowserRouter>
+		</div>
 	);
 }
 

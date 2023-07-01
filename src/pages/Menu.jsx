@@ -37,9 +37,11 @@ function Menu() {
 	}, []);
 
 
-	function handleSearch(e) {
-		setQuery(e.target.value);
+	function handleSearch() {
 		fetchData();
+	}
+	function handleOnChange(e) {
+		setQuery(e.target.value)
 	}
 	const itemsPerPage = 8;
 	const [itemOffset, setItemOffset] = useState(0);
@@ -73,8 +75,9 @@ function Menu() {
 	return (
 		<div>
 			<Navbar
-				onChange={(e) => handleSearch(e)}
+				search={(e) => handleSearch(e)}
 				value={query}
+				onChange={(e) => handleOnChange(e)}
 			/>
 			<div className="container-cards">
 				<div className="container-flex">{!isLoading ? card : <Spinners />}</div>

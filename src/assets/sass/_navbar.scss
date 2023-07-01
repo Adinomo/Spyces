@@ -1,0 +1,31 @@
+@layer components {
+	.navbar {
+		@apply w-full fixed flex items-center justify-between bg-green-500 px-4 py-3;
+
+		&-search {
+			@apply p-[0.6rem] rounded-3xl w-full placeholder:text-gray-400 outline-none 
+			text-gray-500 md:ps-8 pt-[0.7rem]
+		}
+		&-button {
+			@apply absolute right-[3px] bg-green-500 h-10 w-10 top-[2px] rounded-3xl
+		}
+		&-collapse {
+			@apply md:w-full w-[70%] fixed top-0 right-0 md:static h-full md:h-fit md:text-white 
+			text-gray-400 flex flex-col md:flex-row md:items-center md:pe-14 px-3 md:px-2 py-20 
+			md:py-0 bg-gray-100 md:bg-inherit transition-all duration-300 ease-in-out
+			 
+		}
+		&-dropdown {
+			@apply md:bg-white w-full text-gray-400 font-normal text-sm px-4 py-4 md:shadow-xl 
+			rounded-md md:absolute static hidden group-hover:block;
+			li {
+				@apply mb-[0.35rem] cursor-pointer hover:text-gray-500
+			}
+			
+		}
+		&-dropdown-item {
+			@apply flex md:flex-row flex-col md:items-center w-fit md:justify-center px-0 md:px-2 
+			md:font-semibold md:ms-auto border-white order-2 md:order-none mt-5 md:mt-0
+		}
+	}
+}

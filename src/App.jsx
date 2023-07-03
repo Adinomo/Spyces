@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Menu from "./pages/Menu";
-import RecipeDetails from "./pages/recipeDetails";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
 	return (

@@ -31,7 +31,7 @@ function Navbar({ value, search, onChange }) {
 				}`}>
 				<ul className="navbar-dropdown-item ">
 					<ul className="relative me-6">
-						<li className="cursor-pointer group mb-2 md:mb-0">
+						<div className="cursor-pointer group mb-2 md:mb-0">
 							Categories{" "}
 							<RiArrowDropDownLine
 								className="inline group-hover:rotate-180 transition-transform duration-300"
@@ -42,9 +42,9 @@ function Navbar({ value, search, onChange }) {
 								<li>Beef</li>
 								<li>Seafood</li>
 							</div>
-						</li>
+						</div>
 					</ul>
-					<li className="cursor-pointer group pe-4 mb-4 md:mb-0">
+					<div className="cursor-pointer group pe-4 mb-4 md:mb-0">
 						Area{" "}
 						<RiArrowDropDownLine
 							className="inline group-hover:rotate-180 transition-transform duration-300"
@@ -55,7 +55,7 @@ function Navbar({ value, search, onChange }) {
 							<li>Beef</li>
 							<li>Seafood</li>
 						</div>
-					</li>
+					</div>
 				</ul>
 				<div className="w-full md:max-w-[300px] md:ps-2 flex relative">
 					<input

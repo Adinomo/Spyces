@@ -2,3 +2,21 @@
 @import "./navbar";
 @import "./card";
 @import "./menu";
+@import "./details";
+
+@layer components {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-green-500 rounded;
+		&:hover {
+			@apply bg-opacity-90;
+		}
+	}
+}

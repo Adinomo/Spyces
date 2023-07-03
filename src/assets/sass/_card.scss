@@ -1,0 +1,17 @@
+@layer components {
+	.card{
+		@apply w-full max-w-[370px] mx-auto border shadow-lg rounded-md;
+
+		&-text {
+			@apply bg-green-100 pt-[3px] px-[8px] mb-[6px] text-[0.78rem] w-fit h-fit flex 
+			items-center rounded-sm
+		}
+		&-button {
+			@apply p-3 bg-green-500 rounded-md w-full text-white hover:bg-opacity-90
+			transition-all duration-300 ease-in-out
+		}
+		&-image {
+			@apply w-full h-[230px] object-fill rounded-t-md cursor-pointer;
+		}
+	}
+}

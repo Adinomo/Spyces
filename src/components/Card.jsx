@@ -1,22 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
 
-function Cards(props) {
+function Cards({title, image, id, category}) {
 	let navigate = useNavigate();
 	return (
-		<div className="flexbox-con border">
+		<div className="card" >
 			<div  className="card">
 				<img
-					variant="top"
-					src={props.image}
-					className="image"
+					src={image}
+					className="card-image"
+					onClick={() => {navigate(`/${id}`)}}
 				/>
-				<div className="card-body">
-					<h2 className="card-title">{props.title}</h2>
-					<p className="card-text">{props.category}</p>
+				<div className="py-4 px-3 w-full">
+					<h2 className="cursor-pointer w-fit" onClick={() => {navigate(`/${id}`)}}>{title}</h2>
+					<p className="card-text">{category}</p>
 					<button
-						className="btn-view"
-						onClick={() => {navigate(`/${props.id}`)}}>
+						className="card-button"
+						onClick={() => {navigate(`/${id}`)}}>
 						View recipe
 					</button>
 				</div>

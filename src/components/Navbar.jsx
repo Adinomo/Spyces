@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import logo from "/src/assets/img/logo.png";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+import { RiArrowDropDownLine} from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
 
 function Navbar({ value, search, onChange }) {
 	const [open, setOpen] = useState(false);
+	const handleSearchSubmit = () => {
+		setOpen(false);
+		search();
+	}
 
 	return (
 		<div className="navbar">
@@ -61,7 +65,7 @@ function Navbar({ value, search, onChange }) {
 						value={value}
 						onChange={onChange}
 					/>
-					<FiSearch className="navbar-button text-white p-[0.3rem] cursor-pointer" />
+					<FiSearch className="navbar-button text-white p-[0.3rem] cursor-pointer" onClick={handleSearchSubmit} />
 				</div>
 			</div>
 			<div

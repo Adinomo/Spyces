@@ -3,6 +3,7 @@ import Cards from "../components/card";
 import Spinners from "../components/spinner";
 import Navbar from "../components/Navbar";
 import ReactPaginate from "react-paginate";
+import image from "../assets/img/logo.png"
 
 function Menu() {
 	const [data, setData] = useState([]);
@@ -67,7 +68,6 @@ function Menu() {
 				image={item.strMealThumb}
 				id={item.idMeal}
 				category={item.strCategory}
-				items={data}
 			/>
 		);
 	});
@@ -79,8 +79,10 @@ function Menu() {
 				value={query}
 				onChange={(e) => handleOnChange(e)}
 			/>
-			<div className="container-cards">
-				<div className="container-flex">{!isLoading ? card : <Spinners />}</div>
+			<div className="w-full px-3 pt-4">
+				<div className="sm:grid-cols-4 grid px-2 gap-4 mt-20">
+					{!isLoading ? card : <Spinners />}
+				</div>
 			</div>
 			<div className="paginate">
 				{data.length > 8 ? (

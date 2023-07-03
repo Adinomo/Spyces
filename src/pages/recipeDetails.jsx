@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import {useParams} from "react-router-dom";
-import Spinners from '../components/spinner';
-import Navbar from '../components/Navbar';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Spinners from "../components/Spinner";
+import Navbar from "../components/Navbar";
 
-function recipeDetails() {
+function RecipeDetails() {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const recipeId = useParams().id;
 	console.log(recipeId);
-	console.log(data)
-
+	console.log(data);
 
 	const fetchData = async () => {
 		try {
-			setIsLoading(true)
+			setIsLoading(true);
 			const response = await fetch(
 				`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
 			);
@@ -25,11 +24,11 @@ function recipeDetails() {
 				setData(data.meals[0]);
 			}
 		} catch (error) {
-			console.log(error)
-		} finally{
+			console.log(error);
+		} finally {
 			setIsLoading(false);
 		}
-	} 
+	};
 
 	useEffect(() => {
 		fetchData();
@@ -40,12 +39,11 @@ function recipeDetails() {
 	const ingredients = [];
 	const measure = [];
 	for (let i = 1; i < 21; i++) {
-		ingredients.push(data['strIngredient'+ i]);
-		measure.push(data['strMeasure'  + i]);
-		
+		ingredients.push(data["strIngredient" + i]);
+		measure.push(data["strMeasure" + i]);
 	}
 	console.log(ingredients);
-	console.log(measure)
+	console.log(measure);
 
 	const recipe = (
 		<div className="mt-5 container">
@@ -64,7 +62,15 @@ function recipeDetails() {
 					<p className="ing">{strInstructions}</p>
 					<h4>Ingredients:</h4>
 					<div className="d-flex flex-wrap">
-						{ ingredients.map((items, index) => {return <div className="p-1" style={{ width: "16rem" }}>{ measure[index] }  { items }</div>;}) }
+						{ingredients.map((items, index) => {
+							return (
+								<div
+									className="p-1"
+									style={{ width: "16rem" }}>
+									{measure[index]} {items}
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>
@@ -74,11 +80,9 @@ function recipeDetails() {
 	return (
 		<div>
 			<Navbar />
-			<div>
-				{isLoading ? <Spinners /> : recipe}
-			</div>
+			<div>{isLoading ? <Spinners /> : recipe}</div>
 		</div>
 	);
 }
 
-export default recipeDetails;
+export default RecipeDetails;

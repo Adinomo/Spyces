@@ -1,0 +1,25 @@
+@layer components {
+	.menu{
+		@apply h-fit pb-20 relative;
+		&-cards {
+			@apply sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid px-2 gap-4 mt-20;
+		}
+		&-paginate {
+			@apply flex my-5 items-center justify-center absolute bottom-0 w-full;
+		}
+	}
+	.pagination {
+		@apply flex bg-green-500 px-4 py-2 w-[300px] items-center justify-around rounded text-white;
+
+		&-num {
+			@apply px-3;
+		}
+		&-page {
+			@apply px-2 flex items-center rounded pt-1 hover:bg-white hover:bg-opacity-[0.15] 
+			hover:text-white;
+		}
+		&-active {
+			@apply bg-white text-gray-500
+		}
+	}
+}

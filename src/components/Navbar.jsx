@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "/src/assets/img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { RiArrowDropDownLine} from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import categories from "../api/categories.json";
+import areas from "../api/areas.json";
 
-
-function Navbar({ value, search, onChange }) {
+function Navbar({ value, search, onChange, setEndpoint}) {
 	const [open, setOpen] = useState(false);
+	const [category, setCategory] = useState([categories]);
+	const [area, setArea] = useState([areas]);
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const handleSearchSubmit = () => {
+		if (!location.pathname === "/" ) navigate("/")
 		setOpen(false);
+		setEndpoint.current = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
+		search();
+	}
+
+	const handleCategory = (e) => {
+		if (location.pathname !== "/") navigate("/");
+		setEndpoint.current = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.currentTarget.innerText}`;
+		search();
+	}
+
+	const handleArea = (e) => {
+		if (!location.pathname === "/") navigate("/");
+		setEndpoint.current = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${e.currentTarget.innerText}`;
 		search();
 	}
 
@@ -37,10 +58,10 @@ function Navbar({ value, search, onChange }) {
 								className="inline group-hover:rotate-180 transition-transform duration-300"
 								size={23}
 							/>{" "}
-							<div className="navbar-dropdown">
-								<li>Pasta</li>
-								<li>Beef</li>
-								<li>Seafood</li>
+							<div className="navbar-dropdown h-[200px] w-[150px] overflow-scroll">
+								{category[0].meals.map((el, index) => (
+									<li key={index} onClick={e => handleCategory(e)}>{el.strCategory}</li>
+								))}
 							</div>
 						</div>
 					</ul>
@@ -50,10 +71,10 @@ function Navbar({ value, search, onChange }) {
 							className="inline group-hover:rotate-180 transition-transform duration-300"
 							size={23}
 						/>
-						<div className="navbar-dropdown w-fit">
-							<li>Pasta</li>
-							<li>Beef</li>
-							<li>Seafood</li>
+						<div className="navbar-dropdown w-fit h-[200px] z-10 overflow-scroll">
+							{area[0].meals.map((el, index) => (
+								<li key={index} onClick={e => handleArea(e)}>{el.strArea}</li>
+							))}
 						</div>
 					</div>
 				</ul>
@@ -65,7 +86,10 @@ function Navbar({ value, search, onChange }) {
 						value={value}
 						onChange={onChange}
 					/>
-					<FiSearch className="navbar-button text-white p-[0.3rem] cursor-pointer" onClick={handleSearchSubmit} />
+					<FiSearch
+						className="navbar-button text-white p-[0.3rem] cursor-pointer"
+						onClick={handleSearchSubmit}
+					/>
 				</div>
 			</div>
 			<div

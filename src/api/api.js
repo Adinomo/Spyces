@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const fetchData = async (endpoint, query, setIsLoading, setData) => {
 	try {
 		setIsLoading(true);
@@ -33,5 +35,4 @@ export const fetchDetails = async (recipeId, setIsLoading, setData) => {
 		setIsLoading(false);
 	}
 };
-
 

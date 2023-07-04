@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Cards from "../components/card";
 import Spinner from "../components/Spinner";
 import Navbar from "../components/Navbar";
@@ -7,18 +7,20 @@ import { fetchData } from "../api/api"
 
 function Menu() {
 	const [query, setQuery] = useState("");
-	const [endpoint, setEndpoint] = useState(`https://www.themealdb.com/api/json/v1/1/search.php?s=`)
 	const [data, setData] = useState([]);
 	const [categories, setCategories] = useState();
 	const [isLoading, setIsLoading] = useState(false);
-	const [itemOffset, setItemOffset] = useState(0);	
+	const [itemOffset, setItemOffset] = useState(0);
+	
+	const initialEndpoint = `https://www.themealdb.com/api/json/v1/1/search.php?s=`
+	const endpoint = useRef(initialEndpoint);
 
 	useEffect(() => {
-		fetchData(endpoint, query, setIsLoading, setData);
-	}, []);
+		fetchData(endpoint.current, query, setIsLoading, setData);
+	}, [endpoint]);
 
 	function handleSearch() {
-		fetchData(endpoint, query, setIsLoading, setData);
+		fetchData(endpoint.current, query, setIsLoading, setData);
 	}
 	function handleOnChange(e) {
 		setQuery(e.target.value);
@@ -27,7 +29,7 @@ function Menu() {
 	const itemsPerPage = 8;
 	const endOffset = itemOffset + itemsPerPage;
 	const currentItems = data?.slice(itemOffset, endOffset);
-	const pageCount = Math.ceil(data.length / itemsPerPage);
+	const pageCount = Math.ceil(data?.length / itemsPerPage);
 
 	// Invoke when user clicks to request another page.
 	const handlePageClick = (event) => {
@@ -35,7 +37,7 @@ function Menu() {
 		setItemOffset(newOffset);
 	};
 	//data mapped into the card
-	const card = currentItems.map((item, index) => {
+	const card = currentItems?.map((item, index) => {
 		return (
 			<Cards
 				key={index}
@@ -53,12 +55,13 @@ function Menu() {
 				search={(e) => handleSearch(e)}
 				value={query}
 				onChange={(e) => handleOnChange(e)}
+				setEndpoint={endpoint}
 			/>
 			<div className="w-full px-3 pt-4">
 				<div className="menu-cards">{!isLoading ? card : <Spinner />}</div>
 			</div>
 			<div className="menu-paginate">
-				{data.length > 8 ? (
+				{data?.length > 8 ? (
 					<ReactPaginate
 						breakLabel="..."
 						nextLabel="next >"

@@ -37,7 +37,7 @@ function Cards({title, image, id, category}) {
 				/>
 				<div className="py-4 px-3 w-full">
 					<h2
-						className="cursor-pointer w-fit"
+						className="cursor-pointer h-[23px] w-full text-ellipsis overflow-hidden truncate"
 						onClick={() => {
 							navigate(`/${id}`);
 						}}>

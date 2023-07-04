@@ -34,9 +34,9 @@ function RecipeDetails() {
 			</div>
 			<div className="details-info">
 				<h2 className="font-semibold text-lg">{strMeal}</h2>
-				<h4>Instructions:</h4>
+				<h4>{strInstructions ? "Instructions:" : ""}</h4>
 				<p className="text-sm text-justify mb-4">{strInstructions}</p>
-				<h4>Ingredients:</h4>
+				<h4>{ingredients ? "Ingredients:" : ""}</h4>
 				<div className="grid grid-cols-2">
 					{ingredients.map((items, index) => {
 						return (
